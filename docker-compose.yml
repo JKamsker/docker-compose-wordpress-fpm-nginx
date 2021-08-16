@@ -35,6 +35,9 @@ services:
       - ${WP_CONTENT}:/var/www/html/wp-content
       - ./le/certs:/etc/letsencrypt
       - ./le/data:/data/letsencrypt
+      - ./nginx/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./nginx/php.ini:/usr/local/etc/php.ini
+
     ports:
       - '80:80'
       - '443:443'
@@ -45,3 +48,7 @@ services:
 volumes:
   mysql-datavolume:
   wordpress:
+
+
+#/usr/local/etc/php.ini-development
+#/usr/local/etc/php.ini-production
